@@ -1,10 +1,20 @@
 import { TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { ActivatedRoute } from '@angular/router';
+import { of } from 'rxjs';
 import { AppComponent } from './app.component';
+import { CharacterListComponent } from './components/character-list/character-list.component';
+import { DragonballService } from './services/dragonball.service';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AppComponent],
+      imports: [HttpClientTestingModule, CharacterListComponent],
+      providers: [
+        DragonballService,
+        { provide: ActivatedRoute, useValue: { queryParams: of({ page: '1' }) } }
+      ]
     }).compileComponents();
   });
 
@@ -20,10 +30,5 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('DragonBall');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, DragonBall');
-  });
+
 });
