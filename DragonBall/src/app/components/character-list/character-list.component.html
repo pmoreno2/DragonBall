@@ -1,4 +1,4 @@
-<div class="character-list">
+<div class="character-list" *ngIf="!errorMessage">
   <div *ngFor="let character of characters" class="card">
     <img [src]="character.image" alt="{{ character.name }}">
     <div class="card-content">
@@ -9,4 +9,9 @@
       <p>Género: {{ character.gender }}</p>
     </div>
   </div>
+</div>
+<div class="pagination">
+  <button (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1">Anterior</button>
+  <span>Página {{ currentPage }} de {{ totalPages }}</span>
+  <button (click)="goToPage(currentPage + 1)" [disabled]="currentPage === totalPages">Siguiente</button>
 </div>

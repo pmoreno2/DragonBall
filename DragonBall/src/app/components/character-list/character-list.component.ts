@@ -13,17 +13,39 @@ import { DragonballService } from '../../services/dragonball.service';
 export class CharacterListComponent implements OnInit {
   characters: any[] = [];
   errorMessage: string | null = null;
+  currentPage: number = 1;
+  totalPages: number = 1;
 
-  constructor(private dragonballService: DragonballService) { }
+  constructor(
+    private dragonballService: DragonballService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.dragonballService.getCharacters().subscribe(
+    this.route.queryParams.subscribe(params => {
+      this.currentPage = +params['page'] || 1;
+      this.loadCharacters();
+    });
+  }
+
+  loadCharacters(): void {
+    this.dragonballService.getCharacters(this.currentPage).subscribe(
       (data: any) => {
-        this.characters = data;
+        this.characters = data.items;
+        this.totalPages = data.meta.totalPages;
       },
       (error: any) => {
         this.errorMessage = error;
       }
     );
+  }
+
+  goToPage(page: number): void {
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: { page },
+      queryParamsHandling: 'merge'
+    });
   }
 }
