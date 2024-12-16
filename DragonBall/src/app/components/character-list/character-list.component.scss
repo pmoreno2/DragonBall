@@ -10,9 +10,7 @@
 .card {
   display: flex;
   flex-direction: row;
-  //flex-wrap: wrap;
   align-items: center;
-  //padding: 30px;
   border: 1px solid #ccc;
   border-radius: 8px;
   overflow: hidden;
@@ -21,6 +19,7 @@
   transition: transform 0.3s ease; /* Smooth transition for hover effect */
   box-sizing: border-box; /* Ensure padding is included in the width calculation */
   position: relative; /* For the watermark */
+  cursor: pointer; /* Change cursor to pointer on hover */
 }
 
 .card:hover {
@@ -76,7 +75,6 @@
   color: #8a2be2; /* BlueViolet */
 }
 
-
 /* Responsive design for screens smaller than 800px */
 @media (max-width: 800px) {
   .card {
@@ -98,7 +96,6 @@
   margin: 0 0.5rem;
   padding: 0.5rem 1rem;
   font-size: 1rem;
-  cursor: pointer;
 }
 
 .pagination span {
