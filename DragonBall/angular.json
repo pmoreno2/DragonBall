@@ -63,7 +63,7 @@
               ]
             },
             "github-pages": {
-              "baseHref": "/gh_angular/",
+              "baseHref": "/DragonBall/",
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -85,7 +85,7 @@
                   "maximumError": "5mb"
                 }
               ]
-            }  
+            }
           }
         },
         "serve": {
