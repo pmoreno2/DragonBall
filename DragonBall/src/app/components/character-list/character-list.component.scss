@@ -1,0 +1,105 @@
+.character-list {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-family: 'Roboto', sans-serif; /* Apply the font to the character list */
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+  //flex-wrap: wrap;
+  align-items: center;
+  //padding: 30px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  width: calc(50% - 3rem); /* Two cards per row, accounting for padding */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease; /* Smooth transition for hover effect */
+  box-sizing: border-box; /* Ensure padding is included in the width calculation */
+  position: relative; /* For the watermark */
+}
+
+.card:hover {
+  transform: scale(1.10); /* Slightly enlarge the card on hover */
+}
+
+.card img {
+  width: auto;
+  height: 150px; /* Set the height of the images */
+  margin-left: 20px;
+  object-fit: cover;
+  transition: transform 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.card img:hover {
+  transform: scale(1.2); /* Slightly enlarge the image on hover */
+}
+
+.card-content {
+  margin-left: 20px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+}
+
+.card-content h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
+  color: black; /* Tomato */
+}
+
+.card-content p {
+  margin: 5px;
+  font-size: 1rem;
+  color: #666;
+}
+
+.card-content p:nth-child(2) {
+  color: #1e90ff; /* DodgerBlue */
+}
+
+.card-content p:nth-child(3) {
+  color: #32cd32; /* LimeGreen */
+}
+
+.card-content p:nth-child(4) {
+  color: #ff4500; /* OrangeRed */
+}
+
+.card-content p:nth-child(5) {
+  color: #8a2be2; /* BlueViolet */
+}
+
+
+/* Responsive design for screens smaller than 800px */
+@media (max-width: 800px) {
+  .card {
+    width: calc(100% - 2rem); /* One card per row */
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.pagination button {
+  background-color: blue;
+  color: white;
+  border-radius: 8px;
+  margin: 0 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.pagination span {
+  font-size: 1.25rem;
+}
