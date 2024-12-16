@@ -1,0 +1,57 @@
+# File: .github/workflows/ci.yml
+name: CI Pipeline
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '20.17.0'
+
+    - name: Install dependencies
+      run: npm install
+      working-directory: ./DragonBall
+
+    - name: Run unit tests
+      run: npm test -- --watch=false
+      working-directory: ./DragonBall
+
+  deploy:
+    runs-on: ubuntu-24.04
+    needs: test
+    if: ${{ github.ref == 'refs/heads/main' }}
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '20.17.0'
+
+    - name: Install dependencies
+      run: npm install
+      working-directory: ./DragonBall
+
+    - name: Build project
+      run: npm run build -- --configuration=github-pages
+      working-directory: ./DragonBall
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GH_TOKEN }}
+        publish_dir: ./DragonBall/dist/DragonBall
