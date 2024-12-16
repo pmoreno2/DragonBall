@@ -1,0 +1,19 @@
+.navbar {
+  display: flex;
+  background-color: #333;
+  padding: 1rem;
+  width: 100%; /* Reduce el ancho del navbar */
+  margin: 0 auto; /* Centra el navbar horizontalmente */
+  border-radius: 8px; /* Añade bordes redondeados */
+}
+
+.nav-link {
+  margin-left: 20px;
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}
