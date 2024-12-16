@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "karma-coverage-istanbul-reporter": "^3.0.3"
+  }
+}
