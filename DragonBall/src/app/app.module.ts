@@ -8,6 +8,7 @@ import { HomeComponent } from './components/home/home.component';
 import { CharacterListComponent } from './components/character-list/character-list.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { CharacterListPageComponent } from './pages/character-list-page/character-list-page.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 import { routes } from './app.routes';
 
 @NgModule({
@@ -16,7 +17,8 @@ import { routes } from './app.routes';
     HomeComponent,
     CharacterListComponent,
     CharacterListPageComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
