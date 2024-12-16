@@ -6,5 +6,6 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'personajes', component: CharacterListPageComponent },
-  { path: '**', component: NotFoundComponent } // Ruta comodín para manejar rutas no encontradas
+  { path: '404', component: NotFoundComponent },
+  { path: '**', redirectTo: '/404' } // Ruta comodín para manejar rutas no encontradas
 ];
