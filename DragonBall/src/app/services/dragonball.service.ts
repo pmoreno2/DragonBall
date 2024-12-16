@@ -18,6 +18,13 @@ export class DragonballService {
     );
   }
 
+  getCharacterById(id: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/characters/${id}`).pipe(
+      map(response => response),
+      catchError(this.handleError)
+    );
+  }
+
   private handleError(error: HttpErrorResponse) {
     let errorMessage = 'Unknown error!';
     if (error.error instanceof ErrorEvent) {

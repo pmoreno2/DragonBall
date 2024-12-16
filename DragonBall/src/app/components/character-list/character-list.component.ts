@@ -48,4 +48,8 @@ export class CharacterListComponent implements OnInit {
       queryParamsHandling: 'merge'
     });
   }
+
+  goToCharacterDetail(id: number): void {
+    this.router.navigate(['/personajes', id]);
+  }
 }

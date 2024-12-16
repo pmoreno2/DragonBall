@@ -1,5 +1,5 @@
 <div class="character-list" *ngIf="!errorMessage">
-  <div *ngFor="let character of characters" class="card">
+  <div *ngFor="let character of characters" class="card" (click)="goToCharacterDetail(character.id)">
     <img [src]="character.image" alt="{{ character.name }}">
     <div class="card-content">
       <h2>{{ character.name }}</h2>
