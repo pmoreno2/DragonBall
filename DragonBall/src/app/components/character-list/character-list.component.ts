@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DragonballService } from '../../services/dragonball.service';
+//import {routerModule} from '@angular/router';
 
 @Component({
   selector: 'app-character-list',
