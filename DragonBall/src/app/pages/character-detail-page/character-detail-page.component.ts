@@ -2,13 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { DragonballService } from '../../services/dragonball.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-character-detail-page',
   templateUrl: './character-detail-page.component.html',
   styleUrls: ['./character-detail-page.component.scss'],
   standalone: true,
-  imports: [CommonModule]
+  imports: [CommonModule, RouterModule]
 })
 export class CharacterDetailPageComponent implements OnInit {
   character: any;

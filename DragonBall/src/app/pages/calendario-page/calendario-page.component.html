@@ -1,0 +1,21 @@
+<div class="calendario-page">
+  <h1>Calendario de Eventos</h1>
+  <section class="calendario-page-section">
+    <div class="calendario">
+      <mat-calendar [(selected)]="selectedDate" (selectedChange)="onDateSelected($event)"></mat-calendar>
+    </div>
+    <div>
+      <div *ngIf="selectedDate" class="selected-date">
+        <p>Día seleccionado: {{ selectedDate | date: 'fullDate' }}</p>
+      </div>
+      <div *ngIf="events.length > 0" class="events-list">
+        <h2>Eventos:</h2>
+        <ul>
+          <li *ngFor="let event of events">
+            {{ event.date | date: 'fullDate' }} - {{ event.title }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>  
+</div>
