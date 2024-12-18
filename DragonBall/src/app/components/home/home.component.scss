@@ -1,6 +1,9 @@
 .home {
   text-align: center;
   margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .home a {
@@ -11,6 +14,14 @@
   color: white;
   border-radius: 8px;
   text-decoration: none;
+}
+.home-desc{
+  margin-left: 20px;
+  align-self: start;
+}
+.home-link{
+  width: 15%;
+  align-self: center;
 }
 .home-image{
   margin-top: 20px;
