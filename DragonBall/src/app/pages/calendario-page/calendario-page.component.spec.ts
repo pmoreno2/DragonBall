@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { CalendarioPageComponent } from './calendario-page.component';
+import { CalendarDataService } from '../../services/calendar-data.service';
 
 describe('CalendarioPageComponent', () => {
   let component: CalendarioPageComponent;
@@ -8,9 +9,9 @@ describe('CalendarioPageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CalendarioPageComponent]
-    })
-    .compileComponents();
+      imports: [HttpClientTestingModule, CalendarioPageComponent],
+      providers: [CalendarDataService]
+    }).compileComponents();
 
     fixture = TestBed.createComponent(CalendarioPageComponent);
     component = fixture.componentInstance;
