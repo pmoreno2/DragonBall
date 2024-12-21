@@ -2,7 +2,12 @@
   <h1>Calendario de Eventos</h1>
   <section class="calendario-page-section">
     <div class="calendario">
-      <mat-calendar [(selected)]="selectedDate" (selectedChange)="onDateSelected($event)"></mat-calendar>
+      <!-- <mat-calendar [(selected)]="selectedDate" (selectedChange)="onDateSelected($event)" [highlightDates]="highlightDates"></mat-calendar> -->
+      <mat-calendar 
+        [highlightDates]="highlightDates" 
+        [(selected)]="selectedDate" 
+        (selectedChange)="onDateSelected($event)">
+      </mat-calendar>
     </div>
     <div>
       <div *ngIf="selectedDate" class="selected-date">
@@ -12,7 +17,7 @@
         <h2>Eventos:</h2>
         <ul>
           <li *ngFor="let event of events">
-            {{ event.date | date: 'fullDate' }} - {{ event.title }}
+            {{ event.date | date: 'fullDate' }} - <b>{{ event.series }}</b> - {{ event.title }}
           </li>
         </ul>
       </div>
