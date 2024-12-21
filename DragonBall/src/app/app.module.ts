@@ -27,7 +27,8 @@ import { HighlightDatesDirective } from '../../directives/highlight-dates.direct
     CharacterListPageComponent,
     CharacterDetailPageComponent,
     NotFoundComponent,
-    CalendarioPageComponent
+    CalendarioPageComponent,
+    HighlightDatesDirective
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, ViewChild } from '@angular/core';
+import { MatCalendar } from '@angular/material/datepicker';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -22,26 +23,37 @@ import { HighlightDatesDirective } from '../../directives/highlight-dates.direct
   styleUrls: ['./calendario-page.component.scss']
 })
 export class CalendarioPageComponent implements OnInit {
+  @ViewChild(MatCalendar) calendar!: MatCalendar<Date>; // Referencia al componente MatCalendar
   selectedDate: Date | null = null;
-  events: { date: Date, title: string }[] = [];
+  events: { date: Date, series: string, title: string }[] = [];
   highlightDates: Date[] = [];
 
   constructor(private calendarDataService: CalendarDataService) {}
 
   ngOnInit(): void {
-    this.calendarDataService.loadEpisodes().subscribe((episodes: { date: Date, title: string }[]) => {
+    this.calendarDataService.loadEpisodes().subscribe((episodes: { date: Date, series: string, title: string }[]) => {
       this.events = episodes;
-      this.highlightDates = episodes.map(event => event.date);
+      this.highlightDates = episodes.map(event => new Date(event.date));
+      // Forzar actualización del calendario
+      if (this.calendar) {
+        this.calendar.updateTodaysDate();
+      }
     });
   }
 
   onDateSelected(date: Date): void {
     this.selectedDate = date;
-    const title = prompt('Enter event title:');
-    if (title) {
-      this.calendarDataService.addEvent(date, title);
+    const series = prompt('Introduzca el titulo del evento:');
+    const title = prompt('Introduzca la descripcion del evento:');
+    if (title && series) {
+      this.calendarDataService.addEvent(date, series, title);
       this.events = this.calendarDataService.getEvents();
       this.highlightDates = this.events.map(event => event.date);
+      
+      // Forzar actualización del calendario
+      if (this.calendar) {
+        this.calendar.updateTodaysDate();
+      }
     }
   }
 }
