@@ -6,10 +6,10 @@ import { CalendarioPageComponent } from './pages/calendario-page/calendario-page
 import { NotFoundComponent } from './components/not-found/not-found.component';
 
 export const routes: Routes = [
-  { path: '', component: NotFoundComponent },
+  { path: '', component: HomeComponent },
   { path: 'personajes', component: CharacterListPageComponent },
   { path: 'personajes/:id', component: CharacterDetailPageComponent }, // Asegúrate de que esta ruta esté configurada correctamente
   { path: 'calendario', component: CalendarioPageComponent },
-  { path: '404', pathMatch: 'full' ,component: HomeComponent },
-  { path: '**', pathMatch: 'full' ,component: HomeComponent } // Ruta comodín para manejar rutas no encontradas
+  { path: '404', pathMatch: 'full' ,component: NotFoundComponent },
+  { path: '**', pathMatch: 'full' ,component: NotFoundComponent } // Ruta comodín para manejar rutas no encontradas
 ];
