@@ -68,7 +68,7 @@
               ]
             },
             "github-pages": {
-              "baseHref": "/",
+              "baseHref": "/DragonBall/",
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
