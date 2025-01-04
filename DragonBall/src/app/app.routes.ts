@@ -11,5 +11,5 @@ export const routes: Routes = [
   { path: 'personajes/:id', component: CharacterDetailPageComponent }, // Asegúrate de que esta ruta esté configurada correctamente
   { path: 'calendario', component: CalendarioPageComponent },
   { path: '404', component: NotFoundComponent },
-  { path: '**', component: NotFoundComponent } // Ruta comodín para manejar rutas no encontradas
+  { path: '**', component: NotFoundComponent }, // Ruta comodín para manejar rutas no encontradas
 ];
