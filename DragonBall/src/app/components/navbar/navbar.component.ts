@@ -8,4 +8,12 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [RouterModule]
 })
-export class NavbarComponent {}
+export class NavbarComponent {
+  menuOpen = false;
+
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+    const dropbtn = document.querySelector('.dropbtn');
+    dropbtn?.classList.toggle('change');
+  }
+}

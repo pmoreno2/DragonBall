@@ -79,13 +79,6 @@ body{
   color: #8a2be2; /* BlueViolet */
 }
 
-/* Responsive design for screens smaller than 800px */
-@media (max-width: 800px) {
-  .card {
-    width: calc(100% - 2rem); /* One card per row */
-  }
-}
-
 .pagination {
   display: flex;
   justify-content: center;
@@ -104,4 +97,11 @@ body{
 
 .pagination span {
   font-size: 1.25rem;
+}
+
+/* Responsive design for screens smaller than 800px */
+@media (max-width: 800px) {
+  .card {
+    width: calc(100% - 2rem); /* One card per row */
+  }
 }

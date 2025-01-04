@@ -1,5 +1,12 @@
 <nav class="navbar">
-  <a routerLink="/" class="nav-link">Inicio</a>
-  <a routerLink="/personajes" class="nav-link">Personajes</a>
-  <a routerLink="/calendario" class="nav-link">Calendario</a> <!-- Enlace añadido -->
+  <button class="dropbtn" (click)="toggleMenu()">
+    <div class="bar1"></div>
+    <div class="bar2"></div>
+    <div class="bar3"></div>
+  </button>
+  <ul class="nav-links" [class.show]="menuOpen">
+    <li><a routerLink="/" class="nav-link">Inicio</a></li>
+    <li><a routerLink="/personajes" class="nav-link">Personajes</a></li>
+    <li><a routerLink="/calendario" class="nav-link">Calendario</a></li>
+  </ul>
 </nav>
