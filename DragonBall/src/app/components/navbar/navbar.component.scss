@@ -2,9 +2,19 @@
   display: flex;
   background-color: #333;
   padding: 1rem;
-  width: 100%; /* Reduce el ancho del navbar */
-  margin: 0 auto; /* Centra el navbar horizontalmente */
-  border-radius: 8px; /* Añade bordes redondeados */
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 8px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  width: 100%;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .nav-link {
@@ -16,4 +26,81 @@
 
 .nav-link:hover {
   text-decoration: underline;
+}
+
+.dropbtn {
+  display: none;
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  font-size: 1.2rem;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 24px;
+  width: 30px;
+}
+
+.dropbtn:focus {
+  outline: none;
+}
+
+.bar1, .bar2, .bar3 {
+  width: 35px;
+  height: 4px;
+  background-color: white;
+  margin: 3px 0;
+  transition: 0.4s;
+}
+
+/* Change the bars into a cross when the menu is open */
+.change .bar1 {
+  transform: rotate(-45deg) translate(-5px, 5px);
+}
+
+.change .bar2 {
+  opacity: 0;
+}
+
+.change .bar3 {
+  transform: rotate(45deg) translate(-5px, -5px);
+}
+
+/*for screens smaller than 400px*/
+@media (max-width: 400px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    display: none;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-link {
+    margin-left: 0;
+    width: 100%;
+    padding: 10px;
+    text-align: left;
+  }
+
+  .dropbtn {
+    display: block;
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  ul {
+    margin-left: 10px;
+  }
+  li {
+    margin: 10px;
+  }
 }
