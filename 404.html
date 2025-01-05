@@ -34,13 +34,37 @@
   border-radius: 8px;
   text-decoration: none;
 }
+/*for screens smaller than 400px*/
+@media (max-width: 400px) {
+  .not-found {
+    display: flex;
+    flex-direction: column-reverse;
+    //justify-content: center;
+    //align-content: center;
+    //text-align: center;
+    margin-top: 2rem;
+  }
+  .not-found a {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 1rem 1rem;
+    background-color: blue;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    width: 35%;
+  }
+  .not-found-image{
+    width: 30rem;
+  }
+}
   </style>
   <link rel="stylesheet" href="styles.7cc450771a040eea.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="styles.7cc450771a040eea.css"></noscript>
 </head>
 <body class="mat-typography">
   <div class="not-found">
-    <img src="Cell_404.webp" alt="">
+    <img class="not-found-image" src="Cell_404.webp" alt="">
     <div>
       <h1>404 - Página no encontrada</h1>
       <p>Lo sentimos, la página que estás buscando no existe.</p>
