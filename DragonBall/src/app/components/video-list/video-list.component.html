@@ -1,0 +1,10 @@
+<div *ngFor="let category of categories" class="category-section">
+  <h2>{{ category }}</h2>
+  <div class="video-grid">
+    <div *ngFor="let video of getVideosByCategory(category)" [ngClass]="{'video-card': true, 'short-video': video.category === 'Shorts'}">
+      <iframe [src]="video.link | safeUrl" frameborder="0" allowfullscreen></iframe>
+      <h3>{{ video.title }}</h3>
+      <p *ngIf="video.description">{{ video.description }}</p>
+    </div>
+  </div>
+</div>
